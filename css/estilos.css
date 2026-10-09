@@ -1,0 +1,109 @@
+:root {
+  --cafe: #8C5A3C;
+  --cafe-oscuro: #5A3E2B;
+  --crema: #F7F1E8;
+  --arena: #EADBC8;
+  --borde: #D9C7B3;
+  --tinta: #2B1B12;
+  --error: #A32D2D;
+  --exito: #2F6B3A;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--tinta);
+  background: var(--crema);
+}
+
+.pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Panel de marca ---------- */
+.marca {
+  background: var(--cafe);
+  color: var(--crema);
+  padding: 72px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+.logo { display: flex; align-items: center; gap: 14px; }
+.logo__icono {
+  width: 56px; height: 56px; border-radius: 16px;
+  background: var(--crema); color: var(--cafe);
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 24px;
+}
+.logo__texto { font-size: 32px; font-weight: 800; }
+.marca__titulo { margin: 0; font-size: 46px; line-height: 1.15; font-weight: 800; max-width: 14ch; }
+.marca__texto { margin: 0; font-size: 18px; line-height: 1.5; max-width: 46ch; }
+.beneficios { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; font-size: 17px; font-weight: 600; }
+.beneficios li { padding-left: 22px; position: relative; }
+.beneficios li::before {
+  content: ""; position: absolute; left: 0; top: .55em;
+  width: 9px; height: 9px; border-radius: 50%; background: var(--arena);
+}
+
+/* ---------- Formulario ---------- */
+.acceso { display: grid; place-items: center; padding: 48px 32px; }
+.formulario { width: 100%; max-width: 400px; display: grid; gap: 18px; }
+.formulario__titulo { margin: 0 0 6px; font-size: 32px; font-weight: 800; color: var(--cafe-oscuro); }
+.formulario__ayuda { margin: 0; font-size: 15px; font-weight: 600; color: var(--cafe-oscuro); }
+
+.campo label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 700; color: var(--cafe-oscuro); }
+.campo input {
+  width: 100%; height: 52px; padding: 0 16px;
+  border: 1.5px solid var(--borde); border-radius: 14px;
+  font: 600 16px "Nunito", system-ui, sans-serif;
+  background: #fff; color: var(--tinta);
+}
+.campo input::placeholder { color: #7A6555; }
+.campo input[aria-invalid="true"] { border-color: var(--error); }
+.campo__error { margin: 6px 0 0; font-size: 13.5px; font-weight: 700; color: var(--error); }
+
+.campo__clave { position: relative; }
+.campo__clave input { padding-right: 96px; }
+.ver-clave {
+  position: absolute; right: 6px; top: 6px; height: 40px; padding: 0 12px;
+  border: 0; border-radius: 10px; background: transparent;
+  font: 700 14px "Nunito", system-ui, sans-serif; color: var(--cafe); cursor: pointer;
+}
+.ver-clave:hover { background: var(--arena); }
+
+.boton {
+  height: 54px; border: 0; border-radius: 14px;
+  background: var(--cafe); color: #fff;
+  font: 800 17px "Nunito", system-ui, sans-serif; cursor: pointer;
+}
+.boton:hover { background: var(--cafe-oscuro); }
+.boton[disabled] { opacity: .7; cursor: progress; }
+
+.estado { margin: 0; padding: 12px 14px; border-radius: 12px; font-size: 14.5px; font-weight: 700; }
+.estado--error { background: #FBE9E9; color: var(--error); }
+.estado--ok { background: #E6F2E8; color: var(--exito); }
+
+.enlace { margin: 0; text-align: center; font-size: 14.5px; font-weight: 600; color: var(--cafe-oscuro); }
+.enlace a { color: var(--cafe); font-weight: 700; }
+.nota { margin: 0; text-align: center; font-size: 13px; font-weight: 600; color: var(--cafe-oscuro); }
+
+:focus-visible { outline: 3px solid #C9A66B; outline-offset: 2px; }
+
+/* ---------- Pantallas pequeñas ---------- */
+@media (max-width: 860px) {
+  .pagina { grid-template-columns: 1fr; }
+  .marca { padding: 36px 28px; gap: 14px; }
+  .marca__titulo { font-size: 28px; max-width: none; }
+  .marca__texto, .beneficios { display: none; }
+  .acceso { padding: 32px 24px 48px; align-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

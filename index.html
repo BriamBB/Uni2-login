@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión · Uni2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <div class="pagina">
+    <aside class="marca">
+      <div class="logo">
+        <span class="logo__icono" aria-hidden="true">U2</span>
+        <span class="logo__texto">Uni2</span>
+      </div>
+      <h1 class="marca__titulo">Tu espacio estudiantil en Ucompensar</h1>
+      <p class="marca__texto">Una comunidad verificada para conectar con compañeros, encontrar ayuda académica confiable y organizar tus planes.</p>
+      <ul class="beneficios">
+        <li>Conecta con compañeros de cualquier carrera</li>
+        <li>Mentorías con calificaciones y reputación</li>
+        <li>Eventos y planes en un solo lugar</li>
+      </ul>
+    </aside>
+
+    <main class="acceso">
+      <form class="formulario" id="form-login" novalidate>
+        <header>
+          <h2 class="formulario__titulo">Inicia sesión</h2>
+          <p class="formulario__ayuda">Usa tu correo institucional de Ucompensar</p>
+        </header>
+
+        <div class="campo">
+          <label for="correo">Correo institucional</label>
+          <input id="correo" name="correo" type="email" autocomplete="username"
+                 placeholder="tu.correo@institucional" required aria-describedby="error-correo">
+          <p class="campo__error" id="error-correo" hidden></p>
+        </div>
+
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <div class="campo__clave">
+            <input id="clave" name="clave" type="password" autocomplete="current-password"
+                   placeholder="Tu contraseña" required aria-describedby="error-clave">
+            <button class="ver-clave" id="ver-clave" type="button" aria-pressed="false">Mostrar</button>
+          </div>
+          <p class="campo__error" id="error-clave" hidden></p>
+        </div>
+
+        <p class="estado" id="estado" role="status" aria-live="polite" hidden></p>
+
+        <button class="boton" id="boton-enviar" type="submit">Iniciar sesión</button>
+
+        <p class="enlace"><a href="#">¿Olvidaste tu contraseña?</a></p>
+        <p class="enlace">¿Primera vez? <a href="#"><strong>Regístrate con tu correo institucional</strong></a></p>
+        <p class="nota">Acceso exclusivo para estudiantes verificados</p>
+      </form>
+    </main>
+  </div>
+  <script src="js/login.js"></script>
+</body>
+</html>
